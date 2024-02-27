@@ -1,5 +1,6 @@
+import { MainLayout } from '@components/main-layout'
+import { PraisesList } from '@components/praises'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Praise Yourself',
@@ -7,5 +8,16 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  return <main className="container">Hello</main>
+  return (
+    <MainLayout className="py-10">
+      <div className="space-y-2">
+        <h1 className="text-4xl font-bold">
+          Welcome to <span className="text-primary">Praise Yourself</span>
+        </h1>
+        <p className="text-base">Here you can buy prises for yourself</p>
+      </div>
+
+      <PraisesList className="mt-10" />
+    </MainLayout>
+  )
 }
