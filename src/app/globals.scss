@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer base {
+  html {
+    font-size: 1.11vw;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    @apply bg-gradient-to-t from-[#bebfc2] to-[#f6f6f6] min-h-screen;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
