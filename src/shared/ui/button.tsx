@@ -10,7 +10,7 @@ export const Button = ({ children, className, ...rest }: Props) => {
     <button
       {...rest}
       className={cn(
-        'bg-primary rounded-3xl px-4 py-3 font-semibold text-white shadow transition-colors',
+        'rounded-3xl bg-primary px-4 py-3 font-semibold text-white shadow transition-colors disabled:cursor-not-allowed disabled:bg-primary/30',
         className
       )}
     >

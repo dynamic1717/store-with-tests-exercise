@@ -14,7 +14,10 @@ export default function Home() {
         <h1 className="text-4xl font-bold">
           Welcome to <span className="text-primary">Praise Yourself</span>
         </h1>
-        <p className="text-base">Here you can buy prises for yourself</p>
+        <p className="text-base">
+          Do you ever feel like you need a little pick-me-up? We got you! <br />
+          Here you can find a list of praises to help you feel better about yourself.
+        </p>
       </div>
 
       <PraisesList className="mt-10" />

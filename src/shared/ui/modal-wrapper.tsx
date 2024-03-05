@@ -2,33 +2,44 @@
 
 import React, { useEffect } from 'react'
 import { ReactPortal } from './react-portal'
+import { cn } from '@shared/utils'
 
 interface Props {
   children: React.ReactNode
   isOpen: boolean
   onClose: () => void
+  className?: string
 }
 
-export const ModalWrapper = ({children, isOpen, onClose}: Props) => {
-
+export const ModalWrapper = ({ children, isOpen, onClose, className }: Props) => {
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto'
   }, [isOpen])
 
   useEffect(() => {
-    const closeOnEscapeKey = (e: any) => e.key === "Escape" ? onClose() : null;
-    document.body.addEventListener("keydown", closeOnEscapeKey);
+    const closeOnEscapeKey = (e: any) => (e.key === 'Escape' ? onClose() : null)
+    document.body.addEventListener('keydown', closeOnEscapeKey)
     return () => {
-      document.body.removeEventListener("keydown", closeOnEscapeKey);
-    };
-  }, [onClose]);
+      document.body.removeEventListener('keydown', closeOnEscapeKey)
+    }
+  }, [onClose])
 
   if (!isOpen) return null
 
   return (
-    <ReactPortal wrapperId='modal-wrapper'>
-      <div className='fixed h-screen w-screen top-0 left-0 bg-black/40' onClick={() => onClose()} />
-      <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white p-4 rounded-2xl'>{children}</div>
+    <ReactPortal wrapperId="modal-wrapper">
+      <div
+        className="fixed left-0 top-0 h-screen w-screen bg-black/40"
+        onClick={() => onClose()}
+      />
+      <div
+        className={cn(
+          'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6',
+          className
+        )}
+      >
+        {children}
+      </div>
     </ReactPortal>
   )
 }

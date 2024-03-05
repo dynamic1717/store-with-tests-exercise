@@ -1,6 +1,7 @@
 import { cn } from '@shared/utils'
 import { Header } from './header'
 import { ModalProvider } from '@components/providers'
+import { CheckoutOverlay } from '@components/checkout-overlay'
 
 interface Props extends React.ComponentPropsWithoutRef<'main'> {
   children: React.ReactNode
@@ -16,6 +17,7 @@ export const MainLayout = ({ children, className, ...rest }: Props) => {
       </main>
 
       <ModalProvider />
+      <CheckoutOverlay />
     </>
   )
 }
