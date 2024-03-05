@@ -2,8 +2,10 @@
 
 import { useCheckoutStore } from '@shared/hooks'
 import { ReactPortal } from '@shared/ui/react-portal'
-import Lottie from 'lottie-react'
+import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 export const CheckoutOverlay = () => {
   const { items, clearItems } = useCheckoutStore()

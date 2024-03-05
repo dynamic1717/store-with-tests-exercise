@@ -3,22 +3,28 @@
 import { useCartStore } from '@shared/hooks'
 import { IPraise } from '@shared/types/types'
 import { Button } from '@shared/ui'
-import { useLottie } from 'lottie-react'
 import { Minus, Plus, ShoppingBasket } from 'lucide-react'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 interface Props {
   data: IPraise
 }
 
 export const PraiseCard = ({ data }: Props) => {
-  const { View } = useLottie({ animationData: data.animationData, loop: true })
-  const { addToCart, removeFromCart, getCartItemAmount } = useCartStore()
-  const amountInCart = getCartItemAmount(data)
+  const { addToCart, removeFromCart, getCartItemAmount, cart } = useCartStore()
+  const [amountInCart, setAmountInCart] = useState(0)
+
+  useEffect(() => {
+    setAmountInCart(getCartItemAmount(data))
+  }, [cart, data, getCartItemAmount])
 
   return (
     <article className="flex flex-col rounded-3xl bg-white p-5 shadow-lg">
       <div className="mx-auto flex aspect-square h-[12.5rem] items-center justify-center rounded-3xl border border-accent">
-        {View}
+        <Lottie animationData={data.animationData} loop={true} />
       </div>
 
       <div className="mb-6 mt-4">

@@ -16,8 +16,15 @@ interface ICartStore {
 
 const LS_CART_KEY = 'praise-yourself-cart'
 
+const getInitialCart = () => {
+  if (typeof window !== 'undefined') {
+    return JSON.parse(localStorage.getItem(LS_CART_KEY) || '[]')
+  }
+  return []
+}
+
 export const useCartStore = create<ICartStore>((set, get) => ({
-  cart: JSON.parse(localStorage.getItem(LS_CART_KEY) || '[]'),
+  cart: getInitialCart(),
 
   addToCart: (item) => {
     const cart = get().cart

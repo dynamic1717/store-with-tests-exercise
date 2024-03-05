@@ -3,14 +3,18 @@
 import { useCartStore, useModal } from '@shared/hooks'
 import { Cake, ShoppingBasket } from 'lucide-react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 interface Props extends React.ComponentPropsWithoutRef<'header'> {}
 
 export const Header = ({ ...rest }: Props) => {
   const { onOpen } = useModal()
   const { cart } = useCartStore()
+  const [cartItemsCount, setCartItemsCount] = useState(0)
 
-  const cartItemsCount = cart.reduce((acc, item) => acc + item.amount, 0)
+  useEffect(() => {
+    setCartItemsCount(cart.reduce((acc, item) => acc + item.amount, 0))
+  }, [cart])
 
   return (
     <header {...rest} className="container py-4">

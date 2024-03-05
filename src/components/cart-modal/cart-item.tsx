@@ -1,7 +1,9 @@
 import { useCartStore } from '@shared/hooks'
 import { IPraise } from '@shared/types/types'
-import { useLottie } from 'lottie-react'
 import { Minus, Plus } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 interface Props {
   item: IPraise
@@ -9,12 +11,11 @@ interface Props {
 
 export const CartItem = ({ item }: Props) => {
   const { addToCart, removeFromCart, getCartItemAmount } = useCartStore()
-  const { View } = useLottie({ animationData: item.animationData, loop: true })
 
   return (
     <div className="flex items-center gap-x-4 rounded-2xl border border-solid px-2 py-1">
       <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-solid">
-        {View}
+        <Lottie animationData={item.animationData} loop={true} />
       </div>
       <div>
         <h4 className="font-semibold">{item.title}</h4>
