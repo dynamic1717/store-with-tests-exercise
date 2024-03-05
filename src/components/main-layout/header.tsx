@@ -1,9 +1,14 @@
+'use client'
+
+import { useModal } from '@shared/hooks'
 import { Cake, ShoppingBasket } from 'lucide-react'
 import Link from 'next/link'
 
 interface Props extends React.ComponentPropsWithoutRef<'header'> {}
 
 export const Header = ({ ...rest }: Props) => {
+  const { onOpen } = useModal()
+
   return (
     <header {...rest} className="container py-4">
       <div className="flex items-start justify-between">
@@ -11,7 +16,7 @@ export const Header = ({ ...rest }: Props) => {
           <Cake size={48} className="h-8 w-8" />
           Praise Yourself
         </Link>
-        <button className="flex items-center gap-2 rounded-2xl bg-white px-4 py-3">
+        <button className="flex items-center gap-2 rounded-2xl bg-white px-4 py-3" onClick={() => onOpen('cart')}>
           <ShoppingBasket size={24} className="h-6 w-6" />
           <span className="font-semibold">Cart</span>
         </button>

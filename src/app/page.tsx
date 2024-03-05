@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <MainLayout className="py-10">
+    <MainLayout className="pt-10">
       <div className="space-y-2">
         <h1 className="text-4xl font-bold">
           Welcome to <span className="text-primary">Praise Yourself</span>
