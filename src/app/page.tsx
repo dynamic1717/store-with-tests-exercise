@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <MainLayout className="pt-10">
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-4xl font-bold" data-testid="home-title">
           Welcome to <span className="text-primary">Praise Yourself</span>
         </h1>
         <p className="text-base">
