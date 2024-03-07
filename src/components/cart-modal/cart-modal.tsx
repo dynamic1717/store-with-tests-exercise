@@ -19,7 +19,12 @@ export const CartModal = () => {
   }
 
   return (
-    <ModalWrapper isOpen={isModalOpen} onClose={onClose} className="w-[35rem]">
+    <ModalWrapper
+      isOpen={isModalOpen}
+      onClose={onClose}
+      className="w-[35rem]"
+      data-testid="cart-modal"
+    >
       <h3 className="text-xl font-semibold">Your precious cart</h3>
 
       <div className="mt-6 grid max-h-[30rem] grid-cols-1 gap-y-4 overflow-y-auto">

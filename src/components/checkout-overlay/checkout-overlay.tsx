@@ -35,7 +35,10 @@ export const CheckoutOverlay = () => {
 
   return (
     <ReactPortal wrapperId="checkout-overlay">
-      <div className="fixed left-0 top-0 h-screen w-screen bg-white/70">
+      <div
+        className="fixed left-0 top-0 h-screen w-screen bg-white/70"
+        data-testid="checkout-overlay"
+      >
         {items.map((item) =>
           Array.from({ length: item.quantity }).map((_, index) => (
             <div

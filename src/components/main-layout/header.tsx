@@ -27,6 +27,7 @@ export const Header = ({ ...rest }: Props) => {
         <button
           className="relative flex items-center gap-2 rounded-2xl bg-white px-4 py-3"
           onClick={() => onOpen('cart')}
+          data-testid="cart-button"
         >
           <ShoppingBasket size={24} className="h-6 w-6" />
           <span className="font-semibold">Cart</span>

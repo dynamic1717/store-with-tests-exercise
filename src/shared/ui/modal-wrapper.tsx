@@ -4,14 +4,20 @@ import React, { useEffect } from 'react'
 import { ReactPortal } from './react-portal'
 import { cn } from '@shared/utils'
 
-interface Props {
+interface Props extends React.ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode
   isOpen: boolean
   onClose: () => void
   className?: string
 }
 
-export const ModalWrapper = ({ children, isOpen, onClose, className }: Props) => {
+export const ModalWrapper = ({
+  children,
+  isOpen,
+  onClose,
+  className,
+  ...rest
+}: Props) => {
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto'
   }, [isOpen])
@@ -31,8 +37,10 @@ export const ModalWrapper = ({ children, isOpen, onClose, className }: Props) =>
       <div
         className="fixed left-0 top-0 h-screen w-screen bg-black/40"
         onClick={() => onClose()}
+        data-testid="modal-overlay"
       />
       <div
+        {...rest}
         className={cn(
           'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6',
           className
