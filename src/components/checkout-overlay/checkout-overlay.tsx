@@ -45,6 +45,7 @@ export const CheckoutOverlay = () => {
                 top: getRandomScreenPosition().y,
                 left: getRandomScreenPosition().x,
               }}
+              data-testid="checkout-item"
             >
               <Lottie animationData={item.item.animationData} loop={false} />
             </div>

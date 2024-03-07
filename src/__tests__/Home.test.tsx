@@ -3,7 +3,7 @@ import Home from '@app/page'
 
 describe('Home', () => {
   it('Should have title', () => {
-    render(<Home />)
+    renderComponent()
 
     const el = screen.getByTestId('home-title')
 
@@ -11,7 +11,7 @@ describe('Home', () => {
   })
 
   it('Subtitle should contain the catch', () => {
-    render(<Home />)
+    renderComponent()
 
     const el = screen.getByText(/Do you ever feel like you need a little pick-me-up?/i)
 
@@ -19,10 +19,12 @@ describe('Home', () => {
   })
 
   it('Should have a heading', () => {
-    render(<Home />)
+    renderComponent()
 
     const el = screen.getByRole('heading', { name: /Welcome to Praise Yourself/i })
 
     expect(el).toBeInTheDocument()
   })
 })
+
+const renderComponent = () => render(<Home />)

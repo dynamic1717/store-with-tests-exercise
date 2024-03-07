@@ -38,13 +38,20 @@ export const PraiseCard = ({ data }: Props) => {
             <button
               className="flex h-10 w-10 items-center justify-center rounded bg-secondary p-2 font-semibold"
               onClick={() => removeFromCart(data)}
+              data-testid="decrease-amount-in-cart-button"
             >
               <Minus />
             </button>
-            <span className="text-lg font-semibold text-primary">{amountInCart}</span>
+            <span
+              className="text-lg font-semibold text-primary"
+              data-testid="amount-in-cart"
+            >
+              {amountInCart}
+            </span>
             <button
               className="flex h-10 w-10 items-center justify-center rounded bg-secondary p-2 font-semibold"
               onClick={() => addToCart(data)}
+              data-testid="increase-amount-in-cart-button"
             >
               <Plus />
             </button>
@@ -53,6 +60,7 @@ export const PraiseCard = ({ data }: Props) => {
           <Button
             className="ml-auto flex w-1/2 items-center justify-center gap-2"
             onClick={() => addToCart(data)}
+            data-testid="add-to-cart-button"
           >
             <ShoppingBasket className="h-6 w-6" />
             <span>Add to cart</span>

@@ -1,5 +1,6 @@
 import { MainLayout } from '@components/main-layout'
 import { PraisesList } from '@components/praises'
+import { PRAISES } from '@shared/constants'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function Home() {
         </p>
       </div>
 
-      <PraisesList className="mt-10" />
+      <PraisesList data={PRAISES} className="mt-10" />
     </MainLayout>
   )
 }

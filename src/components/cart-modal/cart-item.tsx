@@ -23,13 +23,24 @@ export const CartItem = ({ item }: Props) => {
       </div>
 
       <div className="ml-auto flex w-10 shrink-0 flex-col items-center gap-y-2">
-        <button onClick={() => addToCart(item)} className="bg-secondary">
+        <button
+          onClick={() => addToCart(item)}
+          className="bg-secondary"
+          data-testid="increase-amount-button"
+        >
           <Plus size={16} />
         </button>
-        <span className="flex items-center justify-center text-xl font-semibold">
+        <span
+          className="flex items-center justify-center text-xl font-semibold"
+          data-testid="amount"
+        >
           {getCartItemAmount(item)}
         </span>
-        <button onClick={() => removeFromCart(item)} className="bg-secondary">
+        <button
+          onClick={() => removeFromCart(item)}
+          className="bg-secondary"
+          data-testid="decrease-amount-button"
+        >
           <Minus size={16} />
         </button>
       </div>

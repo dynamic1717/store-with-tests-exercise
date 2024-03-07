@@ -9,7 +9,7 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "clsx": "^2.1.0",

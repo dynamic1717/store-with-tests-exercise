@@ -32,7 +32,10 @@ export const Header = ({ ...rest }: Props) => {
           <span className="font-semibold">Cart</span>
 
           {cartItemsCount > 0 && (
-            <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
+            <span
+              className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white"
+              data-testid="cart-amount-badge"
+            >
               {cartItemsCount}
             </span>
           )}
